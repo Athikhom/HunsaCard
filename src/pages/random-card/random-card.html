@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>RandomCard</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-row center>
+    <ion-col text-center>
+      <button ion-button color="secondary" outline (click)="randomCards()">Random Cards</button>
+    </ion-col>
+  </ion-row>
+  <!-- <ion-img width="80" height="80" src="{{randomNum}}"></ion-img> -->
+
+  <p>
+    Card NO : {{randomNum}}
+  </p>
+  <p>
+    <picture>
+      <img [src]="sumCard">
+    </picture>
+  </p>
+
+  <ion-row center>
+    <ion-col text-center>
+      <button ion-button color="secondary" outline (click)="randomStudent()">Random Student</button>
+    </ion-col>
+  </ion-row>
+  <h2>
+    Student ID : {{sumStudent}}
+  </h2>
+
+  <ion-row center>
+    <ion-col text-center>
+      <button ion-button color="danger" outline (click)="sendToStudent()">Send Card</button>
+    </ion-col>
+  </ion-row>
+</ion-content>
