@@ -1,25 +1,28 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { DetailPage } from '../detail/detail';
+import { NavController, ModalController, ViewController } from 'ionic-angular';
+import { UseCardPage } from '../use-card/use-card';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-  fullname:string;
-  age:number;
-  other:any;
-  group:Array<{id:number,name:string}> =[];
-  constructor(public navCtrl: NavController) {
-    this.fullname = 'Myname';
-    this.age = 20;
-    this.group.push({id:1,name:'Jjjjohn'});
-    this.group.push({id:2,name:'Bohn'});
-    this.group.push({id:3,name:'Tohn'});
-  }
-  goDetail(_item){
-    this.navCtrl.push(DetailPage,{item:_item});
+  card = [];
+  typeCard: string = "Type1";
+
+  constructor(public navCtrl: NavController,
+    public modalCtrl: ModalController) {
 
   }
+
+  CardModal() {
+    let modal = this.modalCtrl.create(UseCardPage,'');
+    modal.present();
+    modal.onDidDismiss((data) => {
+      if(data){ // ในที่นี้เมื่อเพื่มข้อมูล ก็จะส่งค่ากลับมาด้วย ถ้ามีค่า 
+        this.card.push(data); // ก็เพื่มข้อมูลที่กรอกเข้าไปใน array ข้อมูล
+      }
+    });
+  }
+ 
 }

@@ -1,27 +1,76 @@
 <ion-header>
-  <ion-navbar color="primary">
-    <ion-title>
-      my application
-    </ion-title>
+  <ion-navbar>
+    <ion-title>หน้าแรก</ion-title>
+    <ion-buttons right>
+      <button ion-button menu-Toggle (click)="CardModal()">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="News">
+      <ion-segment-button value="Type1">
+        Type1
+      </ion-segment-button>
+      <ion-segment-button value="Type2">
+        Type2
+      </ion-segment-button>
+      <ion-segment-button value="Type3">
+        Type3
+      </ion-segment-button>
+      <ion-segment-button value="Type4">
+        Type4
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
- 
-  <p>
-   Fullname : {{fullname}} <br>
-   Age : {{age}} 
-   <ion-item>
-     <ion-label>
-        Name :
-     </ion-label>
-     <ion-input type="text" [(ngModel)]="fullname"></ion-input>
-   </ion-item>
-   <ion-list>
-     <button  (click)="goDetail(item)" ion-item *ngFor ="let item of group">
-          {{item.id}} {{item.name}}
 
-     </button>
-   </ion-list>
-  </p>
+
+<ion-content padding>
+
+
+
+  <div [ngSwitch]="typeCard">
+
+    <ion-list *ngSwitchCase="Type1">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-3 *ngFor="let card of card">
+            <img [src]="card" width="150px" height="150px">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="Type2">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-3 *ngFor="let card of card">
+            <img [src]="card" width="150px" height="150px">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="Type3">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-3 *ngFor="let card of card">
+            <img [src]="card" width="150px" height="150px">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="Type4">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-3 *ngFor="let card of card">
+            <img [src]="card" width="150px" height="150px">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list>
+  </div>
 </ion-content>

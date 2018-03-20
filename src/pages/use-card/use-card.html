@@ -1,0 +1,23 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>เลือกการ์ด</ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only (click)="closeModal()">
+            <ion-icon item-right name="ios-close-outline"></ion-icon>
+        </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-grid>
+        <ion-row>
+          <ion-col col-3 *ngFor="let card of card">
+            <img [src]="card"  width="150px" height="150px" (click)="selectCard(card)">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+</ion-content>

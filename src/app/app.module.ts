@@ -18,6 +18,7 @@ import { RandomCardPage } from '../pages/random-card/random-card';
 // Import the AF2 Module
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database-deprecated';
+import { UseCardPage } from '../pages/use-card/use-card';
  
  
 // AF2 Settings
@@ -40,13 +41,14 @@ export const firebaseConfig = {
     AboutusPage,
     ListPage,
     TabsPage,
-    RandomCardPage
+    RandomCardPage,
+    UseCardPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireDatabaseModule,
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -57,7 +59,8 @@ export const firebaseConfig = {
     AboutusPage,
     ListPage,
     TabsPage,
-    RandomCardPage
+    RandomCardPage,
+    UseCardPage
   ],
   providers: [
     StatusBar,
