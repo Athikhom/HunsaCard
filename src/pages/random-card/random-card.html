@@ -1,6 +1,6 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>RandomCard</ion-title>
+  <ion-navbar color="primary">
+    <ion-title text-center>Random Card</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -13,7 +13,7 @@
   </ion-row>
   <!-- <ion-img width="80" height="80" src="{{randomNum}}"></ion-img> -->
 
-  <p>
+  <p text-center>
     Card NO : {{randomNum}}
   </p>
   <p>
@@ -27,9 +27,9 @@
       <button ion-button color="secondary" outline (click)="randomStudent()">Random Student</button>
     </ion-col>
   </ion-row>
-  <h2>
+  <p text-center>
     Student ID : {{sumStudent}}
-  </h2>
+  </p>
 
   <ion-row center>
     <ion-col text-center>

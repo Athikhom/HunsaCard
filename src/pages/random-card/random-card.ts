@@ -46,7 +46,7 @@ export class RandomCardPage {
     let un1 = 'https://firebasestorage.googleapis.com/v0/b/hunsacards.appspot.com/o/cards%2Fun1.png?alt=media&token=bed4be0e-fe38-4604-98f5-85a2cc4424f6';
     let un2 = 'https://firebasestorage.googleapis.com/v0/b/hunsacards.appspot.com/o/cards%2Fun2.png?alt=media&token=405afe97-7791-4cfb-96d6-93052656627b';
     this.card = [a1, a2, a3, l1, l2, l3, l4, l5, l6, un1, un2];
-    this.sumCard = 'https://firebasestorage.googleapis.com/v0/b/hunsacards.appspot.com/o/cards%2Fstart.jpg?alt=media&token=84cdddbf-2b50-46a0-ad35-5aa95d3e17e2';
+    this.sumCard = 'https://firebasestorage.googleapis.com/v0/b/hunsacards.appspot.com/o/cards%2F008882f3a8c5cf926ea3ec6e6dbf54ed.jpg?alt=media&token=516ca982-4302-495d-b056-c8fbf13f1195';
     this.sumStudent = null;
 
 

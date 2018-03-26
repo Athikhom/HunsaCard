@@ -1,14 +1,15 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>หน้าแรก</ion-title>
+  <ion-navbar color="primary">
+    <ion-title text-center>My Card</ion-title>
     <ion-buttons right>
       <button ion-button menu-Toggle (click)="CardModal()">
         <ion-icon name="menu"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
+
   <ion-toolbar no-border-top>
-    <ion-segment [(ngModel)]="News">
+    <ion-segment [(ngModel)]="typeCard">
       <ion-segment-button value="Type1">
         Type1
       </ion-segment-button>
@@ -23,30 +24,153 @@
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
+
 </ion-header>
 
-
-
 <ion-content padding>
+  <div [ngSwitch]="typeCard">
+
+
+    <ion-list *ngSwitchCase="'Type1'">
+      <div *ngIf="typeOne?.length==0">
+        <ion-card>
+          <ion-card-header>
+            <h1> Card Empty </h1>
+          </ion-card-header>
+          <ion-card-content>
+            <p>please select card</p>
+          </ion-card-content>
+        </ion-card>
+      </div>
+
+      <ion-row>
+        <ion-col col-4 *ngFor="let c of typeOne">
+          <ion-card>
+            <ion-card-content>
+              <div text-center>
+                <img [src]="c.$value" width="500px" height="600px">
+              </div>
+            </ion-card-content>
+            <ion-card-content padding>
+              <button ion-button type="button" color="danger" full (click)="deleteCard(c.$key,'TypeOne')">
+                ลบรูปภาพ
+              </button>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-list>
+
+
+    <ion-list *ngSwitchCase="'Type2'">
+      <div *ngIf="typeTwo?.length==0">
+        <ion-card>
+          <ion-card-header>
+            <h1> Card Empty </h1>
+          </ion-card-header>
+          <ion-card-content>
+            <p>please select card</p>
+          </ion-card-content>
+        </ion-card>
+      </div>
+      <ion-row>
+        <ion-col col-4 *ngFor="let c of typeTwo">
+          <ion-card>
+            <ion-card-content>
+              <div text-center>
+                <img [src]="c.$value" width="500px" height="600px">
+              </div>
+            </ion-card-content>
+            <ion-card-content padding>
+              <button ion-button type="button" color="danger" full (click)="deleteCard(c.$key,'TypeTwo')">
+                ลบรูปภาพ
+              </button>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-list>
+
+
+    <ion-list *ngSwitchCase="'Type3'">
+      <div *ngIf="typeThree?.length==0">
+        <ion-card>
+          <ion-card-header>
+            <h1> Card Empty </h1>
+          </ion-card-header>
+          <ion-card-content>
+            <p>please select card</p>
+          </ion-card-content>
+        </ion-card>
+      </div>
+      <ion-row>
+        <ion-col col-4 *ngFor="let c of typeThree">
+          <ion-card>
+            <ion-card-content>
+              <div text-center>
+                <img [src]="c.$value" width="500px" height="600px">
+              </div>
+            </ion-card-content>
+            <ion-card-content padding>
+              <button ion-button type="button" color="danger" full (click)="deleteCard(c.$key,'TypeThree')">
+                ลบรูปภาพ
+              </button>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-list>
+
+
+    <ion-list *ngSwitchCase="'Type4'">
+      <div *ngIf="typeFour?.length==0">
+        <ion-card>
+          <ion-card-header>
+            <h1> Card Empty </h1>
+          </ion-card-header>
+          <ion-card-content>
+            <p>please select card</p>
+          </ion-card-content>
+        </ion-card>
+      </div>
+      <ion-row>
+        <ion-col col-4 *ngFor="let c of typeFour">
+          <ion-card>
+            <ion-card-content>
+              <div text-center>
+                <img [src]="c.$value" width="500px" height="600px">
+              </div>
+            </ion-card-content>
+            <ion-card-content padding>
+              <button ion-button type="button" color="danger" full (click)="deleteCard(c.$key,'TypeFour')">
+                ลบรูปภาพ
+              </button>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-list>
 
 
 
+  </div>
+
+</ion-content>
+<!-- <ion-content padding>
   <div [ngSwitch]="typeCard">
 
     <ion-list *ngSwitchCase="Type1">
-      <ion-grid>
-        <ion-row>
-          <ion-col col-3 *ngFor="let card of card">
+      <ion-card *ngFor="let card of type1">
+        <ion-card-content>
             <img [src]="card" width="150px" height="150px">
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+        </ion-card-content>
+      </ion-card>
     </ion-list>
 
     <ion-list *ngSwitchCase="Type2">
       <ion-grid>
         <ion-row>
-          <ion-col col-3 *ngFor="let card of card">
+          <ion-col col-3 *ngFor="let card of type2">
             <img [src]="card" width="150px" height="150px">
           </ion-col>
         </ion-row>
@@ -56,7 +180,7 @@
     <ion-list *ngSwitchCase="Type3">
       <ion-grid>
         <ion-row>
-          <ion-col col-3 *ngFor="let card of card">
+          <ion-col col-3 *ngFor="let card of type3">
             <img [src]="card" width="150px" height="150px">
           </ion-col>
         </ion-row>
@@ -66,11 +190,11 @@
     <ion-list *ngSwitchCase="Type4">
       <ion-grid>
         <ion-row>
-          <ion-col col-3 *ngFor="let card of card">
+          <ion-col col-3 *ngFor="let card of type4">
             <img [src]="card" width="150px" height="150px">
           </ion-col>
         </ion-row>
       </ion-grid>
     </ion-list>
   </div>
-</ion-content>
+</ion-content> -->

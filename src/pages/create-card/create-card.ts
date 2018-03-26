@@ -1,0 +1,18 @@
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import firebase from 'firebase';
+
+@IonicPage()
+@Component({
+  selector: 'page-create-card',
+  templateUrl: 'create-card.html',
+})
+export class CreateCardPage {
+
+  imgPath: any;
+
+
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+  }
+}
